@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hederica · Hedera testnet</title>
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap" />
+  <link rel="stylesheet" href="/menu.css" />
+  <style>
+    :root { --bg:#0c100c; --fg:#f4f1e8; --muted:#c5d0c2; --gold:#c6a15b; --line:#2c352b; --panel:#141a13; }
+    body { margin: 0 auto; max-width: 46rem; padding: 1.25rem 1.25rem 4rem; background: var(--bg); color: var(--fg); font-family: Figtree, sans-serif; line-height: 1.55; }
+    h1, h2 { font-family: Newsreader, serif; font-weight: 500; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 0.95; margin: 0.2rem 0 0.6rem; }
+    a { color: var(--fg); }
+    .kicker { margin: 0; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+    .muted { color: var(--muted); }
+    .line { border-top: 1px solid var(--line); padding: 0.85rem 0; }
+    code { font-family: ui-monospace, monospace; font-size: 0.88em; }
+    pre { white-space: pre-wrap; word-break: break-word; background: var(--panel); padding: 0.75rem; border: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <nav class="deskmenu" aria-label="Desk">
+    <a href="/testnet" aria-current="page">Hedera testnet</a>
+    <a href="/exchange">IdidIt</a>
+    <a href="/study">Study</a>
+    <a href="/">Desk</a>
+  </nav>
+  <p class="kicker">Hederica · Hedera Consensus Service · testnet</p>
+  <h1>The book on testnet.</h1>
+  <p class="muted">Hederica.com is this copy of the lgme desk. Posts, holds, refusals, settlements, and the mock trial are submitted as consensus messages. They are not cash, not a token sale, and not mainnet.</p>
+  <p id="status" class="muted">Reading the mirror…</p>
+  <h2>Latest messages</h2>
+  <div id="tape"></div>
+  <script>
+    var tape = document.getElementById("tape");
+    var status = document.getElementById("status");
+    fetch("/api/hedera").then(function (res) { return res.json(); }).then(function (data) {
+      var topic = data.topicId ? "Topic " + data.topicId : "No topic yet";
+      status.textContent = data.network + " · " + topic + (data.ready ? " · operator ready" : " · " + (data.error || "operator not funded"));
+      var rows = data.messages || [];
+      if (!rows.length) {
+        tape.innerHTML = "<p class='muted'>No testnet messages yet.</p>";
+        return;
+      }
+      tape.innerHTML = rows.map(function (row) {
+        return "<article class='line'><p class='kicker'>#" + row.sequence + " · " + row.at + "</p><pre>" + row.text.replace(/[&<>]/g, function (c) { return ({ "&": "&", "<": "<", ">": ">" })[c]; }) + "</pre></article>";
+      }).join("");
+    }).catch(function () {
+      status.textContent = "The mirror did not answer.";
+    });
+  </script>
+</body>
+</html>
