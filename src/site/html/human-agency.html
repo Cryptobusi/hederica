@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#39e36a" />
+  <link rel="icon" href="/icons/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <title>AI + DLT for Human Agency · Hederica</title>
+  <meta name="description" content="Design research for a cooperative book: a tamper-evident ledger and personal agents in service of people. Not a live protocol, not a membership, and not a funded floor." />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" />
+  <link rel="stylesheet" href="/menu.css" />
+  <style>
+    :root { --bg:#0c100c; --fg:#f4f1e8; --muted:#c5d0c2; --gold:#c6a15b; --line:#2c352b; --panel:#141a13; }
+    body { background:var(--bg); color:var(--fg); font-family:Figtree,sans-serif; font-size:1.05rem; line-height:1.6; max-width:46rem; margin:0 auto; padding:1.5rem 1.25rem 4rem; }
+    .kicker { margin:0; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); }
+    h1,h2,h3 { font-family:Newsreader,serif; font-weight:500; letter-spacing:-0.02em; }
+    h1 { font-size:clamp(2.2rem, 6vw, 3.2rem); line-height:1.05; margin:0.6rem 0 0; }
+    h2 { font-size:1.6rem; line-height:1.15; margin:2rem 0 0.6rem; }
+    h3 { font-size:1.2rem; line-height:1.25; margin:1.4rem 0 0.4rem; }
+    .muted { color:var(--muted); }
+    a { color:var(--fg); }
+    a:hover { color:var(--gold); }
+    ul { margin:0.6rem 0 1rem; padding-left:1.2rem; }
+    li { margin:0.35rem 0; }
+    li::marker { color:var(--gold); }
+    .disclaimer { border-left:2px solid var(--gold); padding:0.2rem 0 0.2rem 1rem; margin:1.25rem 0; color:#e4d3a2; }
+    .table-scroll { overflow-x:auto; max-width:100%; margin:1rem 0 0.4rem; -webkit-overflow-scrolling:touch; }
+    table.compare { width:100%; min-width:36rem; border-collapse:collapse; }
+    table.compare caption { caption-side:bottom; text-align:left; color:var(--muted); font-size:0.92rem; padding:0.65rem 0 0; }
+    table.compare th, table.compare td { text-align:left; vertical-align:top; padding:0.7rem 0.55rem; border-bottom:1px solid var(--line); }
+    table.compare th { color:var(--fg); font-weight:600; }
+    table.compare td { color:var(--muted); }
+    table.compare td:first-child { color:var(--fg); font-weight:600; width:8.5rem; }
+    .deskmenu a[aria-current="page"] { color:var(--gold); }
+    @media (max-width: 720px) {
+      .table-scroll { overflow-x: visible; }
+      table.compare { min-width: 0; }
+      table.compare thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+      table.compare tr, table.compare th, table.compare td { display: block; width: auto; min-width: 0; }
+      table.compare tr { padding: 0.35rem 0 0.85rem; }
+      table.compare th[scope="row"] { border-bottom: 0; padding-bottom: 0.15rem; }
+      table.compare td { border-bottom: 0; padding: 0.45rem 0 0.15rem; font-weight: 400; }
+      table.compare td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--gold);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="deskmenu" aria-label="Desk">
+  <a href="/nswo">NSWO</a>
+  <a href="/dominion">Dominion</a>
+  <a href="/story">Story</a>
+  <a href="/study">Study/Prerequisite</a>
+  <a href="/#ididit">IDidit</a>
+  <a href="/hederica">Hederica</a>
+  <a href="/human-agency" aria-current="page">Human agency</a>
+  <a href="/charter">Charter</a>
+  <a href="/bylaws">Bylaws</a>
+  <a href="/membership">Membership</a>
+  <a href="/#sovereignty">Sovereignty</a>
+  <a href="/#order">The order</a>
+  <a href="/#third-seat">Third seat</a>
+  <a href="/#checks">Checks</a>
+  <a href="/#tape">Tape</a>
+  <a href="/spp">Protocol</a>
+  <a href="/opportunity">Opportunity</a>
+  <a href="/game-theory">Game theory</a>
+  <a href="/technical">Technical</a>
+  <a href="/preparation">Preparation</a>
+  <a href="/">Desk</a>
+</nav>
+
+  <p class="kicker"><a href="/">Hederica</a> · Design research · not an offer</p>
+  <h1>AI + DLT for Human Agency</h1>
+  <div class="disclaimer">
+    <p>This page is a proposal and a design reading. It is not a live protocol, not a financial offer, and not a description of machinery that is already clearing trades. No cooperative is formed. No membership is offered or admitted. Hederica’s aim is a cooperative book. This site does not claim that a legal entity is operating, and it does not perform a cooperative’s functions. What can be shown today is a public desk and a Hedera testnet message book. If it cannot be shown, it is not policy.</p>
+  </div>
+
+  <p class="muted">An economic arrangement that pairs artificial intelligence with distributed ledger technology is proposed here as infrastructure for human self-determination. It is not an algorithmic central planner, and it is not a speculative token casino. The aim is to turn classical incentives toward the person who does the work, instead of toward a feed or a mint. That aim is a design. It is not a system this site has switched on.</p>
+
+  <h2>When the two layers are aimed at agency</h2>
+  <p class="muted">When AI and a distributed ledger are drawn around agency rather than extraction, each can answer a failure the other does not fix. Neither layer cancels the other’s limits.</p>
+
+  <h3>A tamper-evident record, not an unbreakable truth</h3>
+  <p class="muted">Distributed ledger technology, as proposed here, would keep a public record: cryptographic provenance, a strict order of messages, zero-knowledge proofs of specific statements, and an audit anyone can open. The record is tamper-evident. It is not an ungameable account of reality. Writing a line does not by itself stop new money from being created, stop rent from being charged, or stop a platform from censoring somewhere else. It does not prove that off-chain labor happened. A zero-knowledge proof checks the statement it was built to check. It does not certify the truth of care work.</p>
+
+  <h3>A coordination layer that would serve the person</h3>
+  <p class="muted">Artificial intelligence, as proposed here, would be a cognitive coordination layer. Personal agents, kept close to the person, would help notice mutual needs that are not obvious, sketch paths for multidimensional barter, and carry accounting that is heavy with friction, without forcing the person into a rigid office. Those agents are envisioned to serve the people who instruct them. They are not legal fiduciaries. This site does not run them, and nothing here gives an agent a duty a court would recognize.</p>
+
+  <h2>Core mechanics</h2>
+  <p class="muted">The left column is the familiar centralized pattern. The right column is the proposed path. It is not a status report.</p>
+  <div class="table-scroll">
+    <table class="compare">
+      <caption>Legacy Web2 and centralized practice, set beside the proposed AI and DLT architecture. The proposal is design research.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Dimension</th>
+          <th scope="col">Legacy Web2 / centralized model</th>
+          <th scope="col">Proposed AI + DLT architecture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Value accounting</th>
+          <td data-label="Legacy Web2 / centralized model">Fiat denomination. Care and civic labor left unrecorded. Financialization of what does get counted.</td>
+          <td data-label="Proposed AI + DLT architecture">Multi-asset provenance, as a proposal. Micro-deeds, social sweat equity, and compute time would be notarized on a consensus service. The message fee is set in HBAR by the network’s published schedule, not by a fixed dollar price on this page. A notarized line is a statement on a tape. It does not prove the off-chain act.</td>
+        </tr>
+        <tr>
+          <th scope="row">Agent role</th>
+          <td data-label="Legacy Web2 / centralized model">An algorithmic feed tuned for addiction and for advertising revenue.</td>
+          <td data-label="Proposed AI + DLT architecture">Personal agents, envisioned to serve the person. Local models would help negotiate a transaction, flag exploitative terms, and protect attention. Not a legal fiduciary. Not deployed on this site.</td>
+        </tr>
+        <tr>
+          <th scope="row">Safety floor</th>
+          <td data-label="Legacy Web2 / centralized model">Discretionary state welfare, or a platform handout tied to surveillance.</td>
+          <td data-label="Proposed AI + DLT architecture">Floor seniority, as a proposal. Essential living costs and a communal baseline would clear first from named surplus that is actually available. A miss would be disclosed. There is no funded guarantee.</td>
+        </tr>
+        <tr>
+          <th scope="row">Market clearing</th>
+          <td data-label="Legacy Web2 / centralized model">Monopolistic intermediaries that keep a large share of the trade.</td>
+          <td data-label="Proposed AI + DLT architecture">A proposed path. Bilateral commitments might later route along a graph of trust, from A to B to C. Zero-knowledge automated market makers and multilateral routing are research directions, not an exchange this site runs. This page does not claim near-zero overhead. The demo that can be shown is a testnet message book, not a clearing market.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="muted">In this design, people would remain the principals. They would set the constraints on value. Agents would handle suggested optimization only inside those constraints. The ledger would keep the tamper-evident audit trail. That division is the proposal. It is not how a market on this site clears, because no such market is running.</p>
+
+  <h2>A reading for the Hederica cooperative aim</h2>
+  <p class="muted">The public notes beside <a href="https://lgme.app">lgme.app</a> and <a href="https://www.egonomicanonymous.live/">egonomicanonymous.live</a> are an explicit attempt to sketch this alternative, under the name Sovereign Provenance Protocol. This page reads those notes for Hederica’s cooperative aim: members would record civic work for one another, one person and one vote, instead of running a speculative mint. The reading stays design research. It is not a claim that the protocol is in production, that anyone has been admitted as a member, or that a cooperative is performing legal functions. The <a href="/charter">charter</a> is the rule this site points to. The <a href="/testnet">testnet tape</a> is the behavior that can be opened. The <a href="/hederica">Hederica</a> page states the same cooperative aim in shorter form.</p>
+
+  <h3>1. The core economic thesis</h3>
+  <p class="muted">The notes name a failure of ordinary economics. The cost of verification often exceeds the value of ordinary community life.</p>
+  <ul class="muted">
+    <li>Tutoring a peer, helping a neighbor, or clearing a shared walkway has genuine use. Traditional finance often cannot ledger it, because banking rails, compliance, and payment fees erase the value of the act.</li>
+    <li>The Hederica aim is to stamp an authenticated deed or micro-service as a consensus message on Hedera Consensus Service, so a stated effort can sit on a public sequence without being forced into speculative fiat or token trading. The copy this site runs submits those messages on Hedera testnet. It is not mainnet, and it is not cash. A consensus fee is charged in HBAR under Hedera’s published schedule. This page does not fix that fee at a dollar price. The timestamp records what was submitted. It does not prove the physical act.</li>
+  </ul>
+
+  <h3>2. The constitutional principles (“The Eight Words”)</h3>
+  <p class="muted">The companion notes set strict operational rules, meant to resist hidden fees and a skipped order. They are proposed axioms for a book. They are not statutes in force, and they do not by themselves create a cooperative.</p>
+  <ul class="muted">
+    <li><strong>Floor seniority.</strong> Basic subsistence would be prioritized and cleared from named surplus before secondary claims or returns are calculated. Only surplus that is named and available would count. A miss would be disclosed. Nothing on this site funds that floor, and there is no guarantee that a floor will be paid.</li>
+    <li><strong>The public tape.</strong> Every issuance, lien, fee, and agent decision that the design treats as policy would have to be posted to an open sequence. If it cannot be shown, it is not policy.</li>
+    <li><strong>The third seat, the power of refusal.</strong> The person is not drawn as a mere user or a liquidity provider. In the design they hold a recorded refusal. An individual could log a NO to an automated action or a fee that skips the proposed order, and the NO would stay on the record. Recording that refusal does not erase a legal obligation. It does not bind a person who never joined.</li>
+  </ul>
+
+  <h3>3. Strengths and real-world friction</h3>
+  <p class="muted"><strong>What the design gets right.</strong></p>
+  <ul class="muted">
+    <li>It names a real risk of agentic automation. Unchecked agents in an extractive setting can optimize against human well-being unless the rules they may not skip are written where anyone can read them.</li>
+    <li>It points away from rent taken through a speculative token. Separating a work record from a pump-and-dump market is the direction. This page does not describe token economics, and it does not add a trust-branded or club instrument.</li>
+  </ul>
+  <p class="muted"><strong>Where it faces hurdles.</strong></p>
+  <ul class="muted">
+    <li><strong>Cognitive load and accessibility.</strong> The language across the companion sites is dense, poetic, and philosophical. Everyday people are not served until a constitutional check feels as ordinary as paying a bill. That interface is not built here. A design that only a specialist can read does not yet put agency in a member’s hands.</li>
+    <li><strong>The oracle and subjectivity gap.</strong> A zero-knowledge proof can verify a specific computational or digital statement. Verifying an offline physical act, such as caring for a neighbor, without centralized surveillance remains an oracle problem. Mutual endorsements in a web of trust might narrow it. They need enough local participation before they sustain themselves. A cryptographic proof is not the truth of the care.</li>
+  </ul>
+
+  <h2>What this asks of the book</h2>
+  <p class="muted">Treat human agency as the point of the ledger, not as an input to be monetized. On that reading, AI and a distributed ledger would shield individual autonomy rather than extend a surveillance market. Hederica’s cooperative aim is that shield, on paper: one member, one vote, civic work recorded for one another, surplus returned by use only after a floor that has been named. The implemented behavior is narrower. You can read this desk. You can open testnet messages. No wage is paid here. An hour on the tape is not cash, not a deposit, not a security, and not a token offered for sale.</p>
+
+  <p class="muted"><a href="/">← Back to the desk</a> · <a href="/hederica">Hederica</a> · <a href="/charter">Charter</a> · <a href="/testnet">Testnet tape</a></p>
+</body>
+</html>

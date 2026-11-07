@@ -190,6 +190,14 @@
     .topsecret { border: 4px solid #dc2626; background: #1a0a0a; padding: 1.5rem; margin: 0 0 2rem; text-align: center; }
     .topsecret h2 { color: #f87171; margin: 0 0 0.5rem; font-size: clamp(1.4rem, 3vw, 2rem); }
     .topsecret .badge { display: inline-block; background: #dc2626; color: white; font-weight: 700; padding: 0.25rem 0.75rem; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
+    section.lead-essay {
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--gold);
+      margin: 1.15rem 0 0.35rem;
+      padding: 1rem 1.05rem 1.15rem;
+    }
+    section.lead-essay h2 { font-size: clamp(1.55rem, 4vw, 2.05rem); margin: 0.35rem 0 0.45rem; }
+    section.lead-essay a.enter { max-width: 100%; box-sizing: border-box; white-space: normal; text-align: center; }
   </style>
 </head>
 <body>
@@ -203,6 +211,7 @@
     <a href="/dominion">Dominion</a>
     <a href="#ididit">IDidit</a>
     <a href="/hederica">Hederica</a>
+    <a href="/human-agency">Human agency</a>
     <a href="/charter">Charter</a>
     <a href="/bylaws">Bylaws</a>
     <a href="/membership">Membership</a>
@@ -241,9 +250,16 @@
     <a class="study" href="/technical">Technical</a>
     <a class="study" href="/preparation">Preparation</a>
     <a class="study" href="/testnet">Testnet</a>
+    <a class="study" href="/human-agency">Human agency</a>
     <button type="button" id="glossary-btn" aria-expanded="false" aria-controls="glossary">Glossary</button>
   </div>
   <p class="muted">Hederica.com. This copy writes the IdidIt book to Hedera testnet. <a href="/testnet">Open the tape</a>.</p>
+  <section id="human-agency" class="lead-essay">
+    <p class="kicker">Design research</p>
+    <h2>AI + DLT for human agency.</h2>
+    <p class="muted">The banks never counted the hour you gave a neighbor. A public ledger and a personal agent could keep that hour on a book the person can refuse, instead of in a feed that sells attention. That is the proposal: a tamper-evident tape, agents that would serve the person who instructs them, and a floor taken only from surplus that is named. It is not a live market, not a membership, and not a funded guarantee.</p>
+    <p><a class="enter" href="/human-agency">Read AI + DLT for Human Agency</a></p>
+  </section>
   <section id="glossary" hidden>
     <p class="kicker">Glossary</p>
     <h2>Eight words</h2>
@@ -300,7 +316,7 @@
     </ul>
     <p class="muted">Because traditional banking rails demand $0.30 + 2.9% per swipe and require contracts, invoices, and accounting departments, these high-value societal contributions vanish from balance sheets.</p>
     <p class="muted">By leveraging Hedera Consensus Service (HCS), each authenticated good deed or micro-service is inscribed for $0.0001 per consensus timestamp, creating an auditable, immutable ledger of community sweat equity that costs practically nothing to notarize.</p>
-    <p class="muted"><a href="/hederica">Open Hederica</a></p>
+    <p class="muted"><a href="/human-agency">AI + DLT for Human Agency</a> is the full design note. This section is the short account. <a href="/hederica">Open Hederica</a></p>
   </section>
   <video class="fishbowl" poster="/lgme-fishbowl.jpg" autoplay muted loop playsinline preload="auto" aria-label="Fishbowl">
     <source src="/lgme-fishbowl.mp4" type="video/mp4" />
