@@ -178,11 +178,24 @@
     .tools > a.study:hover { color: var(--gold); }
     #glossary { margin-top: 0; border-top: 0; padding-top: 0.2rem; }
     #glossary[hidden] { display: none; }
-    .map { width: 100%; border-collapse: collapse; margin: 1rem 0 0.4rem; }
-    .map th, .map td { text-align: left; padding: 0.55rem 0.35rem; border-bottom: 1px solid var(--line); vertical-align: baseline; }
-    .map th { color: var(--fg); font-weight: 600; }
-    .map td:first-child, .map th:first-child { width: 7.5rem; }
-    .map td { color: var(--muted); }
+    .map { width: 100%; border-collapse: collapse; margin: 1rem 0 0.4rem; table-layout: fixed; }
+    .map th, .map td {
+      text-align: left;
+      padding: 0.55rem 0.4rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .map th { color: var(--fg); font-weight: 600; font-size: 0.82rem; line-height: 1.3; }
+    .map td { color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+    .map th:nth-child(1), .map td:nth-child(1) { width: 28%; }
+    .map th:nth-child(2), .map td:nth-child(2) { width: 34%; }
+    @media (max-width: 640px) {
+      .map th, .map td { padding: 0.45rem 0.28rem; }
+      .map th { font-size: 0.68rem; }
+      .map td { font-size: 0.78rem; }
+    }
     .plates { display: grid; gap: 0.75rem; margin: 1.15rem 0 0.6rem; }
     .plates a { display: block; }
     .plates img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--panel); }
@@ -242,27 +255,29 @@
     <a class="study" href="/technical">Technical</a>
     <a class="study" href="/preparation">Preparation</a>
     <a class="study" href="/testnet">Testnet</a>
-    <button type="button" id="glossary-btn" aria-expanded="false" aria-controls="glossary">Glossary</button>
+    <button type="button" id="glossary-btn" aria-expanded="true" aria-controls="glossary">Glossary</button>
   </div>
   <p class="muted">Hederica.com. This copy writes the IdidIt book to Hedera testnet. <a href="/testnet">Open the tape</a>.</p>
-  <section id="glossary" hidden>
+  <section id="glossary">
     <p class="kicker">Glossary</p>
-    <h2>Eight words</h2>
-    <p class="muted">Easy read keeps the eight book words. Precise swaps each name for the narrower one, including the order line.</p>
+    <h2>The words</h2>
+    <p class="muted">Each row is a framework term, the front-end human primitive, and the practical everyday function.</p>
     <table class="map">
-      <thead><tr><th>Easy read</th><th>Precise</th><th>Also</th></tr></thead>
+      <thead><tr><th>Framework term</th><th>Front-end human primitive</th><th>Practical everyday function</th></tr></thead>
       <tbody>
-        <tr><td>Floor</td><td>Senior tranche</td><td>Food, rent, and the bus, paid first</td></tr>
+        <tr><td>Floor</td><td>Basic Needs Reserve</td><td>Food, shelter, and essentials secured prior to speculative spending.</td></tr>
         <tr><td>Mint</td><td>Fair launch</td><td>Same schedule for everyone. No private drop</td></tr>
-        <tr><td>Issue</td><td>Promissory note</td><td>A bill. Not cash in the app</td></tr>
-        <tr><td>Tape</td><td>Audit trail</td><td>The receipt everyone can open</td></tr>
+        <tr><td>Issue / Named Bill</td><td>Peer Promise / Mutual Credit</td><td>A non-cash IOU directly tied to human effort, not speculative debt.</td></tr>
+        <tr><td>Tape / Constitutive Record</td><td>Public Ledger / Verified Receipt</td><td>An immutable proof of completed work everyone can inspect.</td></tr>
         <tr><td>Charge</td><td>Risk-adjusted fee</td><td>Same price. No VIP</td></tr>
         <tr><td>Agent</td><td>Registrar</td><td>The app can explain. It cannot tap pay</td></tr>
         <tr><td>Thin</td><td>Informational spread</td><td>A wide number is the honest price</td></tr>
         <tr><td>Desert</td><td>Residual value</td><td>What's left. Even if it's nothing</td></tr>
+        <tr><td>Third Seat</td><td>Participant / Everyday Member</td><td>The individual citizen operating on equal footing with institutions.</td></tr>
+        <tr><td>Quiet Print</td><td>Hidden Issuance / Shadow Dilution</td><td>Creating money or promises off-schedule behind closed doors.</td></tr>
       </tbody>
     </table>
-    <p class="muted">Also said, and not a new step. Third seat is your seat. A quiet print is a fee that shows up later. Provenance is where it came from. A refusal is: you tap no, and the no stays on the record.</p>
+    <p class="muted">Also said, and not a new step. Provenance is where it came from. A refusal is: you tap no, and the no stays on the record.</p>
   </section>
   <section class="topsecret">
     <span class="badge">ARCHIVE · NOT AN OFFER</span>
