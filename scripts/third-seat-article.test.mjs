@@ -42,3 +42,18 @@ test("the Jefferson sovereignty sentence is unchanged", () => {
   assert.ok(readFileSync("src/site/html/index.html", "utf8").includes(SOVEREIGNTY));
   assert.ok(readFileSync("public/docs/Sovereignty_Jefferson.md", "utf8").includes(SOVEREIGNTY));
 });
+
+const INTERIM =
+  "lgme is open source. Until the member-governance threshold is met (a majority of members, as the charter will define), the original developer is the sole decider on changes, in service of the Egonomic mission. This is a temporary rule and ends when that threshold is reached.";
+
+test("charter interim governance sits outside the Third Seat article", () => {
+  const html = readFileSync("src/site/html/charter.html", "utf8");
+  const start = html.indexOf('<section id="third-seat"');
+  const end = html.indexOf("</section>", start);
+  const article = html.slice(start, end);
+  assert.equal(article.includes("Interim governance"), false);
+  assert.equal(article.includes("original developer"), false);
+  assert.ok(html.includes("<h2>Interim governance (lgme)</h2>"));
+  assert.ok(html.includes(INTERIM));
+  assert.equal(html.includes("$Trust") || html.includes("$TRUST"), false);
+});
