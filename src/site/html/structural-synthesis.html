@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Structural Synthesis · Hederica</title>
+  <meta name="description" content="The Seam Where Systems Hold, and the November 2026 Structural Synthesis Report. Speculative notes on the Riemann Hypothesis, Creo, and constitutional clearing. Design research, not an offer." />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" />
+  <link rel="stylesheet" href="/menu.css" />
+  <style>
+    :root { --bg: #0c100c; --fg: #f4f1e8; --muted: #c5d0c2; --gold: #c6a15b; --line: #2c352b; --panel: #141a14; }
+    body { background: var(--bg); color: var(--fg); font-family: Figtree, sans-serif; max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; line-height: 1.6; }
+    .kicker { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    h1, h2, h3 { font-family: Newsreader, serif; font-weight: 500; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.45rem, 4vw, 1.85rem); line-height: 1.15; }
+    h3 { font-size: 1.2rem; line-height: 1.25; }
+    .muted { color: var(--muted); }
+    a { color: var(--fg); }
+    a:hover { color: var(--gold); }
+    section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.5rem; }
+    .disclaimer, .editors, .spec { border-left: 2px solid var(--gold); padding-left: 1rem; }
+    .spec { background: var(--panel); padding: 0.9rem 1rem; }
+    .unverified { color: #e4d3a2; }
+    blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--gold); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+    th, td { border-top: 1px solid var(--line); text-align: left; vertical-align: top; padding: 0.65rem 0.55rem 0.65rem 0; }
+    th { color: var(--gold); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+    .table-wrap table { min-width: 40rem; margin: 0; }
+    ol, ul { padding-left: 1.2rem; }
+    li { margin: 0.35rem 0; }
+    figure { margin: 1.25rem 0; }
+    figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.55rem; }
+    .cards { display: grid; gap: 0.75rem; }
+    .card { background: var(--panel); border: 1px solid var(--line); padding: 0.85rem 0.9rem; }
+    .card strong { color: var(--gold); font-weight: 500; }
+    @media (min-width: 720px) {
+      .cards.three { grid-template-columns: repeat(3, 1fr); }
+      .cards.two { grid-template-columns: 1fr 1fr; }
+    }
+    svg { width: 100%; height: auto; max-width: 28rem; display: block; }
+    .svg-frame { background: var(--panel); border: 1px solid var(--line); padding: 0.75rem; }
+  </style>
+</head>
+<body>
+  <nav class="deskmenu" aria-label="Desk">
+    <a href="/dual-engine">Dual engine</a>
+    <a href="/study">Study</a>
+    <a href="/why-must-we">Why Must We</a>
+    <a href="/">Desk</a>
+  </nav>
+  <p class="kicker">Essay and research memorandum · November 2026 · Design research</p>
+  <h1>Structural synthesis</h1>
+  <p class="muted">The essay <em>The Seam Where Systems Hold</em> and the four-page report <em>Structural Synthesis Report: From Meta-Mathematical Boundaries (ΣRH) to Constitutional Clearing (lgme.app &amp; Egonomics)</em>. Author of both drafts: Jin John (<a href="https://egonomicanonymous.live">@egonomicanon</a>). Platforms named in the report: egonomicanonymous.live and lgme.app. Date: November 2026.</p>
+
+  <aside class="editors" role="note">
+    <p><strong>Editor’s note.</strong> This page uses the current lgme.app wording for the Third Seat. The homepage draft article is under review and is left unchanged. That draft still says the nonprofit is not an arbiter.</p>
+    <p>Members mint credit on verified delivery; the Third Seat — the $lgme self-regulating nonprofit — audits and is the arbiter who can veto; it holds $lgme only in trust for the Floor’s posterity and takes no seigniorage.</p>
+  </aside>
+
+  <aside class="spec" role="note">
+    <p><strong>Speculative mathematics.</strong> The Riemann Hypothesis remains an open problem. ΣRH (also written in the draft as a four-axiom “arithmetic-spectral” system) is an analogy and a speculative framework. It is not a proof, and it is not a theorem of standard set theory. Axiom 2 assumes what the Riemann Hypothesis asserts: it is a Hilbert–Pólya-style postulate that non-trivial zeros would be real eigenvalues of a self-adjoint operator, not a demonstration that such an operator exists. Undefined symbols from the draft are not reproduced here as formulas.</p>
+  </aside>
+
+  <section id="essay">
+    <h2>The essay</h2>
+    <p class="kicker">The Seam Where Systems Hold: What Prime Numbers and Constitutional Ledgers Know About Saving Our Economy</p>
+    <p>By Jin John (@egonomicanon). Drafted for egonomicanonymous.live and the Sovereign Provenance Protocol on lgme.app.</p>
+    <p>The essay, as drafted, opens on a late-2026 federal deficit figure of $1.99 trillion and an inflation reading of 3.7 percent. <span class="unverified">Both figures are unverified (from AI draft).</span> They are not treated as findings on this page. The argument that follows does not depend on them.</p>
+    <p>The draft’s claim is structural. When two different kinds of operation share one arena and nothing independent holds the boundary, one side can crowd the other out. In number theory the draft points at discrete counting and the continuous complex plane. In a ledger it points at recorded work on one side and circulating claims on the other.</p>
+    <h3>The critical line, as an open question</h3>
+    <p>The Riemann Hypothesis asks whether every non-trivial zero of the Riemann zeta function has real part one half. Many zeros have been checked and lie on that line. A proof that all of them do is still missing. The draft’s reading is that ordinary arithmetic lets discrete multiplication and continuous analysis interact without a separate conservation law at the boundary, and that Kurt Gödel’s incompleteness theorems and Alfred Tarski’s undefinability of truth are a useful comparison: a system does not, in general, certify itself from inside its own vocabulary. That comparison is an analogy. It is not a proof that the hypothesis is undecidable, and it is not a proof that the hypothesis is true.</p>
+    <p>The draft then steps outside both sides into what it calls a pre-numeric foundation, with a self-adjoint boundary operator standing in for the seam. Inside that picture, an off-line zero would break the picture’s own symmetry. Building a model in which the picture is consistent is left unsolved. See the report below for the four axioms, including the point that the second axiom assumes the hypothesis.</p>
+    <h3>From the seam to the Third Seat</h3>
+    <p>The essay carries the same shape into a neighborhood ledger. One pole is concrete work: repairs, meals, care, craft. The other is the record of who owes whom. Peter Turchin’s cliodynamics is cited for a “wealth pump”: a pattern in which claims concentrate and local exchange stalls even when needs and willing hands are both present. The draft offers the Third Seat as the civic stand-in for the boundary operator.</p>
+    <p>In the essay’s category sketch, provenance is the discrete side (attested acts, signatures, a public sequence) and clearing is the continuous side (net positions that are meant to sum to zero). The essay said the Third Seat belongs to neither buyer nor seller and holds no capital. <span class="unverified">That “owns no assets” sentence is replaced on this page.</span> Members mint credit on verified delivery. The Third Seat audits that mint and can veto it. It holds $lgme only in trust for the Floor’s posterity and takes no seigniorage.</p>
+    <h3>A closed loop, as a worked example</h3>
+    <p>The essay’s Saturday example is an illustration, not a measurement. Rafi does plumbing for Ana, Ana prepares meals for Marcus, and Marcus repairs Rafi’s porch, each leg marked in the draft as 100 units. A bank-shaped reading leaves three unpaid bills until dollars arrive. The draft’s “colimit” reading nets the circle to zero inside the ledger and keeps the record that the work happened. If Marcus’s leg is 60 units instead of 100, the shared 60 cancels, Ana is clear, and a 40-unit remainder stays with Rafi and Marcus. Dollar settlement is still available. Creo works alongside the US dollar and state sovereignty (three seats: State US$, Floor Campus Credit/Creo, Third Seat $lgme), not around them.</p>
+    <h3>Two guardrails, as corrected</h3>
+    <p><strong>Floor Seniority.</strong> Inside lgme, Floor claims rank first now. Seniority over general commercial debt would require legislation (laws, mandates, tax incentives). The essay’s broader claim, that Floor seniority already stands ahead of outside commercial debts, is not how this page states the rule.</p>
+    <p><strong>Two-generation debt sunset.</strong> Unpaid debts sunset on a defined term. The loss is absorbed by the subfloor and sponsors. Surpluses never expire. An idle balance gets the Covenant’s 90-day gentle reminder, with an option to gift surplus to the Floor. The essay’s line that hoarded surplus also expires is not the rule used here.</p>
+    <h3>Four late-2026 pressures, as framing</h3>
+    <p>No sources were attached to the audit. Wording such as “permanently elevated” and “severely eroded” is not repeated as fact.</p>
+    <ul>
+      <li><strong>Cost of living and wages.</strong> The draft frames shelter, food, utilities, and care as costly relative to pay, and statutory wage floors and tight credit as a difficult pair of tools. <span class="unverified">Unverified (from AI draft).</span> The proposed response is Floor Seniority inside the ledger, with the legislative limit above.</li>
+      <li><strong>Public budgets.</strong> The draft frames debt-service costs as crowding other public choices, and it cites the unverified deficit figure above. The local mechanism it describes does not itself issue public debt. It does not change a federal budget.</li>
+      <li><strong>Automation and care.</strong> The draft frames generative tools as compressing some entry-level roles while care, mentoring, and local maintenance stay hard to price. Creo’s 1-for-1 time parity applies inside Floor services. Enterprise goods stay priced.</li>
+      <li><strong>Opaque ledgers.</strong> The draft frames confidence in centralized monetary rules as strained, without a cited survey. The response on this page is a public tape, member minting on delivery, and a Third Seat that audits and can veto, rather than a claim that the seat “owns nothing.”</li>
+    </ul>
+    <p>The essay closes on a sentence it shares with the report: counting does not abolish the continuum, enterprise does not abolish the Floor, and neither the state nor a market clears fairly with no witness at the seam. The draft’s tag for letting go of hoarding is #LeGoMiEgo. Scarcity, in the essay’s last move, is treated as a property of a ledger design. That is a thesis, not a result.</p>
+  </section>
+
+  <section id="report">
+    <h2>The report</h2>
+    <p class="kicker">Structural Synthesis Report · research memorandum · 4 pages in the draft</p>
+    <p>Full title: Structural Synthesis Report: From Meta-Mathematical Boundaries (ΣRH) to Constitutional Clearing (lgme.app &amp; Egonomics) Against Current Economic Conditions. How a pre-numeric picture and a Third Seat analogy are offered for monetary and labor deadlocks. Author: Jin John (@egonomicanon). November 2026.</p>
+
+    <h3>Executive summary</h3>
+    <p>The report says one pattern shows up in logic, in the zeta function, and in ledgers: two modes that cannot referee their own boundary tend to deadlock or drift. It offers a third term in each case.</p>
+    <ol>
+      <li><strong>Number theory, speculative.</strong> Discrete counting and complex analysis do not, by themselves, force every non-trivial zero onto the critical line. The draft’s third term is a pre-numeric substrate plus a self-adjoint boundary. That does not prove the Riemann Hypothesis.</li>
+      <li><strong>Clearing, as an analogy.</strong> Attested work and mutual-credit balances are bridged by an adjunction-shaped story. Members mint on verified delivery. The Third Seat audits and can veto. Closed circles can be netted. The draft’s phrase “without external fiat or state coercion” is not used. Creo works alongside the US dollar and state sovereignty.</li>
+      <li><strong>Political economy, as a proposal.</strong> Creo, Floor Seniority inside lgme, and a debt sunset on a defined term are offered as a third practice beside public spending and private austerity, not as a replacement for either.</li>
+    </ol>
+
+    <h3>Other number systems the draft surveyed</h3>
+    <p>Before ΣRH, the conversation listed existing mathematical settings people have used while thinking about primes and the zeta function. Naming them is not a claim that any of them proves the hypothesis.</p>
+    <div class="table-wrap">
+      <table>
+        <caption class="muted">Settings named in the draft. The “use against the hypothesis” column is the draft’s speculation.</caption>
+        <thead>
+          <tr><th>Setting</th><th>What actually changes</th><th>Draft’s hoped use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tropical semirings</td><td>Addition becomes idempotent. Subtraction is dropped. Alain Connes and Caterina Consani have used tropical ideas on an arithmetic site.</td><td>Read prime growth as piecewise-linear geometry. Speculative.</td></tr>
+          <tr><td>The field with one element</td><td>A proposed setting with multiplicative structure and no ordinary additive group. Not a field in the textbook sense.</td><td>Carry Pierre Deligne’s proof of the Weil conjectures, a finite-field analogue, over to the integers. That transfer is a research program, not a completed proof.</td></tr>
+          <tr><td>p-adic numbers and adeles</td><td>Distance is by divisibility by a prime, not by size on the line. The adelic picture treats many primes at once.</td><td>Read the Euler product and the functional equation as one Fourier duality, following the line of Tate’s thesis. Not a proof of the hypothesis.</td></tr>
+          <tr><td>Surreal and hyperreal numbers</td><td>Infinitesimals and infinite magnitudes are admitted.</td><td>Treat some divergent expressions as algebraic objects. Speculative as an attack on the hypothesis.</td></tr>
+          <tr><td>Bounded arithmetic</td><td>Induction is restricted to bounded formulas.</td><td>Ask how much induction a Π₁ statement equivalent to the hypothesis would need. An open question about proof strength, not a proof.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>ΣRH, in words</h3>
+    <p>The draft’s system starts from three pieces: a discrete multiplicative monoid of positive integers, a continuous space of analytic states, and a boundary operator between them. Four axioms were proposed. They are postulates for a story, not derived rules.</p>
+    <ol>
+      <li><strong>Orthogonality.</strong> Distinct prime logarithms are to behave as perpendicular directions in the analytic space, so they do not line up into an off-line spike. This restates a rigidity the draft wants. It does not prove it for the zeta function.</li>
+      <li><strong>Self-adjoint boundary.</strong> Zero is redefined as a self-adjoint operator whose spectrum is supposed to be the non-trivial zeros. Self-adjoint operators have real eigenvalues, and the draft maps those real eigenvalues onto the critical line. <strong>This assumes what the Riemann Hypothesis asserts.</strong> It is a Hilbert–Pólya-style postulate, not a proof. The hypothesis remains open. No concrete operator is exhibited.</li>
+      <li><strong>Scale symmetry.</strong> Stretching by a factor and stretching by its reciprocal are to leave a trace unchanged. The draft presents this as the functional equation promoted from a property of the zeta function to an axiom. Assuming the functional equation’s symmetry is not the same thing as locating the zeros.</li>
+      <li><strong>A weaker choice principle.</strong> Bounded sequences of states are to converge without the full axiom of choice, to rule out pathological sets. This is a foundational preference. It does not by itself locate zeros.</li>
+    </ol>
+    <p>The draft’s own catch matches the objection: adopting the four axioms moves the work onto proving that some model satisfies them without collapsing. The draft says that showing the second and third together is of the same difficulty as Weil positivity in Alain Connes’s program. That is a confession of the barrier, not a passage through it.</p>
+    <p>A finite toy model, in the draft, is a small matrix or a small graph used to see whether rules can coexist. A symmetric or Hermitian matrix has real eigenvalues. That is a theorem of linear algebra about the matrix. It is not evidence about the zeta function. André Weil’s move from the integers to polynomials over a finite field, and Pierre Deligne’s later proof of the Weil conjectures, are a genuine finite-field analogue. They are not a proof of the classical hypothesis.</p>
+
+    <h3>The pre-numeric third term</h3>
+    <p>The draft argues that a system which already contains both counting and continuum cannot certify their seam in those same terms, and that a prior layer of relations would have to generate both as projections. Gregory Chaitin’s incompleteness results are cited only as a parallel: a description cannot, in general, certify complexity beyond its own length. The parallel is suggestive. It is not a theorem about the zeta zeros.</p>
+
+    <h3>The same shape, three layers</h3>
+    <div class="table-wrap">
+      <table>
+        <caption class="muted">The report’s three-layer table, with the civic row corrected so members mint and the Third Seat audits.</caption>
+        <thead>
+          <tr><th>Layer</th><th>Discrete pole</th><th>Continuous pole</th><th>Boundary</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Speculative logic</td>
+            <td>Counting, prime factorization</td>
+            <td>Analytic continuation</td>
+            <td>A hoped-for self-adjoint boundary. Not constructed.</td>
+          </tr>
+          <tr>
+            <td>Category analogy</td>
+            <td>Provenance: attested work and a public tape</td>
+            <td>Clearing: net positions meant to sum to zero</td>
+            <td>Third Seat audit and veto. Members mint on delivery.</td>
+          </tr>
+          <tr>
+            <td>Civic proposal</td>
+            <td>Floor needs and voluntary trade</td>
+            <td>Creo inside Floor services, at 1-for-1 time; enterprise goods priced</td>
+            <td>Third Seat; Floor Seniority inside lgme; debt sunset on a defined term. Surpluses do not expire.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure>
+      <div class="cards three" role="group" aria-label="Three seats beside one another">
+        <div class="card"><strong>State</strong><p>US dollar. Public law, tax, and the dollar unit. Creo does not replace them.</p></div>
+        <div class="card"><strong>Floor</strong><p>Campus Credit / Creo. Floor services at 1-for-1 time. Named defaults: transparency, UBI, and AI faculties. Enterprise goods stay priced.</p></div>
+        <div class="card"><strong>Third Seat</strong><p>$lgme. Audits, and can veto. Holds $lgme only in trust for the Floor’s posterity. No seigniorage.</p></div>
+      </div>
+      <figcaption>Three seats. Creo works alongside the US dollar and state sovereignty, not around them.</figcaption>
+    </figure>
+
+    <h3>Adjunction, as a diagram of roles</h3>
+    <p>The draft wrote an adjunction between a category of provenance and a category of clearing, and it said the left adjoint mints. <span class="unverified">That minting sentence is replaced.</span> Members mint a credit and a matching obligation when delivery is verified. The Third Seat is the audit: it reads the balance back onto the tape and can veto. A unit-counit story, in ordinary language, is only this: minting from a real act and then auditing it should return that act unchanged, and auditing a balance and then refusing anything the tape does not support should leave an honest balance unchanged. Those are design intentions. They are not a formal theorem.</p>
+    <figure>
+      <div class="cards two" role="group" aria-label="Mint and audit">
+        <div class="card">
+          <strong>Members mint</strong>
+          <p>A verified delivery writes a credit for the person who did the work and an equal clearing obligation for the person who received it. The Third Seat does not mint that pair.</p>
+        </div>
+        <div class="card">
+          <strong>Third Seat audits</strong>
+          <p>The seat checks the pair against the tape. It can veto. It holds $lgme only in trust for the Floor’s posterity and takes no seigniorage.</p>
+        </div>
+      </div>
+      <figcaption>Roles at the seam. Issuance follows delivery. Audit and veto sit with the Third Seat.</figcaption>
+    </figure>
+
+    <h3>Three-party clearing</h3>
+    <p>The report’s loop is the same illustration as the essay. Amounts are example units.</p>
+    <figure>
+      <div class="svg-frame">
+        <svg viewBox="0 0 360 300" role="img" aria-labelledby="loop-title loop-desc">
+          <title id="loop-title">Rafi, Ana, and Marcus as a closed clearing loop</title>
+          <desc id="loop-desc">Rafi does work for Ana, Ana does work for Marcus, and Marcus does work for Rafi. The circle nets to zero in the example. The tape still records each act. Members mint. The Third Seat audits and can veto.</desc>
+          <rect x="1" y="1" width="358" height="298" fill="#141a14" stroke="#2c352b"/>
+          <circle cx="180" cy="148" r="46" fill="#0c100c" stroke="#c6a15b"/>
+          <text x="180" y="144" text-anchor="middle" fill="#f4f1e8" font-size="13" font-family="Figtree, sans-serif">nets to</text>
+          <text x="180" y="162" text-anchor="middle" fill="#c6a15b" font-size="13" font-family="Figtree, sans-serif">0, 0, 0</text>
+          <rect x="110" y="16" width="140" height="52" fill="#0c100c" stroke="#c6a15b"/>
+          <text x="180" y="36" text-anchor="middle" fill="#c6a15b" font-size="14" font-family="Figtree, sans-serif">Rafi</text>
+          <text x="180" y="54" text-anchor="middle" fill="#f4f1e8" font-size="12" font-family="Figtree, sans-serif">work for Ana</text>
+          <rect x="206" y="214" width="140" height="52" fill="#0c100c" stroke="#c6a15b"/>
+          <text x="276" y="234" text-anchor="middle" fill="#c6a15b" font-size="14" font-family="Figtree, sans-serif">Ana</text>
+          <text x="276" y="252" text-anchor="middle" fill="#f4f1e8" font-size="12" font-family="Figtree, sans-serif">work for Marcus</text>
+          <rect x="14" y="214" width="140" height="52" fill="#0c100c" stroke="#c6a15b"/>
+          <text x="84" y="234" text-anchor="middle" fill="#c6a15b" font-size="14" font-family="Figtree, sans-serif">Marcus</text>
+          <text x="84" y="252" text-anchor="middle" fill="#f4f1e8" font-size="12" font-family="Figtree, sans-serif">work for Rafi</text>
+          <path d="M180 70 V100" stroke="#c6a15b" fill="none"/>
+          <path d="M230 168 L250 210" stroke="#c6a15b" fill="none"/>
+          <path d="M130 168 L110 210" stroke="#c6a15b" fill="none"/>
+        </svg>
+      </div>
+      <figcaption>Worked example. A closed circle of equal legs nets to zero. An unequal leg leaves only the difference. Provenance of each act stays on the tape. This diagram does not move money.</figcaption>
+    </figure>
+    <p>If the legs are unequal, the shared circle still cancels and the remainder stays on the books, bounded by Floor Seniority inside lgme and by the sunset on unpaid debt. Path independence, in the draft, means the net does not depend on which neighbor you start with. The Third Seat can still veto. The public tape is what a later reader checks.</p>
+
+    <h3>Guardrails</h3>
+    <ul>
+      <li><strong>Zero-sum issuance.</strong> A credit appears with an equal obligation when delivery is verified. Members mint that pair. Nothing in this note is a license to pre-mint balances to fund a deficit.</li>
+      <li><strong>Visible tape.</strong> The draft wants each entry tied to an attestation and a public sequence. This site’s book, where it writes at all, writes a testnet consensus message. It does not move funds.</li>
+      <li><strong>1-for-1 time parity</strong> applies inside Floor services. Enterprise goods stay priced. Named Floor defaults: transparency, UBI, and AI faculties.</li>
+      <li><strong>Floor Seniority</strong> ranks Floor claims first inside lgme now. Seniority over general commercial debt would require legislation (laws, mandates, tax incentives).</li>
+      <li><strong>Debt sunset.</strong> Unpaid debts sunset on a defined term. The loss is absorbed by the subfloor and sponsors. Surpluses never expire. Idle balances get the Covenant’s 90-day gentle reminder, with an option to gift surplus to the Floor.</li>
+      <li><strong>Voluntary work.</strong> The draft rejects a central dispatcher of jobs. Participation in the illustration is by agreement among the people doing and receiving the work. The Third Seat audits and can veto. It does not assign the task.</li>
+    </ul>
+
+    <h3>Part II — late-2026 audit</h3>
+    <p>The report’s audit names four pressures. No sources were given. This is framing from the draft, not a measured briefing. Where the draft used “permanently elevated” or “severely eroded,” those phrases are not repeated as facts.</p>
+    <ol>
+      <li><strong>Essentials and pay.</strong> The draft frames the cost of shelter, groceries, utilities, and care as high relative to wages, and it frames a wage-floor fight with a credit squeeze. <span class="unverified">Unverified (from AI draft).</span> Remedy as corrected: clear Floor services in Creo, with Floor claims ranked first inside lgme. That ranking does not, by itself, outrank general commercial debt.</li>
+      <li><strong>Public debt service.</strong> The draft frames deficits and interest costs as narrowing other public choices, and it uses the unverified deficit figure quoted in the essay. Remedy as corrected: a local zero-sum record of verified work. It is not a claim about the federal balance, and it is not an instrument that routes around the dollar or the state.</li>
+      <li><strong>Automation.</strong> The draft frames some entry-level roles as compressed by software, and care and local maintenance as weakly priced. <span class="unverified">Unverified (from AI draft).</span> Remedy: 1-for-1 time inside Floor services, enterprise goods priced, attestation voluntary.</li>
+      <li><strong>Opacity.</strong> The draft frames bailouts and uneven rules as a source of distrust, without a cited poll. <span class="unverified">Unverified (from AI draft).</span> Remedy as corrected: members mint on delivery; the Third Seat audits and can veto; the tape is public; no seigniorage.</li>
+    </ol>
+
+    <h3>Part III — policy and protocol matrix</h3>
+    <p>Rows follow the report. Mechanism and outcome cells are corrected where the draft claimed an expiry of surpluses, a mint by the left adjoint, ownership of no assets, or a bypass of the dollar and the state. Outcomes are the draft’s hoped effects, not measured results.</p>
+    <div class="table-wrap">
+      <table>
+        <caption class="muted">Constitutional policy and protocol matrix, November 2026 draft, corrected.</caption>
+        <thead>
+          <tr>
+            <th>Pressing issue, as framed</th>
+            <th>Conventional policy, as framed</th>
+            <th>Mechanism on this page</th>
+            <th>Hoped civic outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Generational and household debt</td>
+            <td>Compounding interest, credit traps, and local balances that do not meet</td>
+            <td>Unpaid debts sunset on a defined term. The loss is absorbed by the subfloor and sponsors. Surpluses never expire. Closed circles net inside the ledger.</td>
+            <td>Stale debts end on the term. A completed circle does not leave a remainder. Idle surplus can be gifted to the Floor after the 90-day reminder.</td>
+          </tr>
+          <tr>
+            <td>Underemployment and automation</td>
+            <td>Deficit-funded job guarantees or mandatory workfare</td>
+            <td>Creo 1-for-1 time parity inside Floor services. Enterprise goods stay priced. Peer attestation. Third Seat veto.</td>
+            <td>Care, repair, and local trade can be recorded without a workfare assignment. Not a measured employment result.</td>
+          </tr>
+          <tr>
+            <td>Essential cost of living</td>
+            <td>Broad subsidies. The draft says some of these lift asset prices. <span class="unverified">Unverified (from AI draft).</span></td>
+            <td>Floor Seniority ranks Floor claims first inside lgme now. Seniority over general commercial debt would require legislation.</td>
+            <td>Food, shelter, and care are ranked first inside the ledger. Outside commercial debts are unchanged until the law says otherwise.</td>
+          </tr>
+          <tr>
+            <td>Institutional opacity</td>
+            <td>Discretionary issuance and bailouts whose terms are hard to see. <span class="unverified">Unverified (from AI draft).</span></td>
+            <td>Members mint on verified delivery. The Third Seat audits and can veto. It holds $lgme only in trust for the Floor’s posterity and takes no seigniorage. Public tape.</td>
+            <td>A reader can check the tape. This is not a claim that every public institution fails that test.</td>
+          </tr>
+          <tr>
+            <td>Small-business cash strain</td>
+            <td>High loan rates and weaker spending. <span class="unverified">Unverified (from AI draft).</span></td>
+            <td>Local mutual clearing, including the draft’s mention of Komunitin-style loops, alongside dollar payment.</td>
+            <td>Shops can clear some supplier and labor loops inside the ledger and still use dollars. No new paid service is offered here.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="risks">Known risks and safeguards</h3>
+    <p>A mutual-credit circle fails in ordinary ways. The safeguards below are the ones named for this design. They are not a claim that software already enforces each of them on a public network.</p>
+    <div class="table-wrap">
+      <table>
+        <caption class="muted">Risks named for Creo, and the safeguards paired with them.</caption>
+        <thead>
+          <tr><th>Risk</th><th>Safeguard</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A member leaves while their balance is negative.</td>
+            <td>The loss on a sunset debt is absorbed by the subfloor and sponsors, not silently shifted onto unpaid neighbors. Covenant limits of −50 and −200 bound how far a balance can go.</td>
+          </tr>
+          <tr>
+            <td>Free-riding: drawing Floor services without attested work.</td>
+            <td>1-for-1 parity is inside Floor services and follows verified delivery. Two sponsors are required, at least one outside a closed circle.</td>
+          </tr>
+          <tr>
+            <td>Faked or collusive loops: a circle of entries with no work behind them.</td>
+            <td>Confirmation from separate devices and passkeys, a public tape, and the Third Seat’s veto. Sponsors include at least one person outside the circle.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Conclusion of the report</h3>
+    <p>The report’s last paragraph lines the critical line up with a community ledger and says durable order is when neither pole abolishes the other. The version published here keeps that sentence and drops the claim of an exit around the dollar or the state. Creo works alongside the US dollar and state sovereignty (three seats: State US$, Floor Campus Credit/Creo, Third Seat $lgme). Anchoring the practice to member minting, a Third Seat that audits and can veto, Floor Seniority inside lgme, loop clearing, and a sunset only on unpaid debt is the proposal. The tag in the draft is #LeGoMiEgo.</p>
+  </section>
+
+  <p class="disclaimer">Design research. Not a solicitation, not a token sale, not legal advice, and not an enrollment. No mainnet instruction, no custody of funds, and no new paid service. A consensus message, where this site writes one, is a testnet record of a fact. It is not cash. The homepage draft article is under review and still says the nonprofit is not an arbiter. This page does not change that draft. Floor stays senior. If it cannot be shown, it is not policy. The Riemann Hypothesis remains open.</p>
+  <p><a href="/dual-engine">Dual engine</a> · <a href="/from-debit-and-credit-to-creo">Debit, credit, Creo</a> · <a href="/why-must-we">Why Must We</a> · <a href="/study">Study</a> · <a href="/spp">Protocol archive</a> · <a href="/hederica">Hederica</a> · <a href="/">Desk</a></p>
+</body>
+</html>
