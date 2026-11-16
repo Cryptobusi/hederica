@@ -178,6 +178,19 @@
     .tools > a.study:hover { color: var(--gold); }
     #glossary { margin-top: 0; border-top: 0; padding-top: 0.2rem; }
     #glossary[hidden] { display: none; }
+    #glossary .glossary { margin-top: 1.5rem; padding-top: 1.25rem; }
+    #creo { scroll-margin-top: 3.25rem; }
+    .glossary h3 {
+      font-family: Newsreader, serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      line-height: 1.15;
+      margin: 0 0 0.75rem;
+    }
+    .glossary ul { margin: 0.2rem 0 0.85rem; padding-left: 1.2rem; }
+    .glossary li { margin: 0.35rem 0; }
+    .glossary li::marker { color: var(--gold); }
     #third-seat blockquote {
       border-left: 2px solid var(--gold);
       margin: 1rem 0;
@@ -221,6 +234,7 @@
     <a href="/nswo">NSWO</a>
     <a href="/dominion">Dominion</a>
     <a href="#ididit">IDidit</a>
+    <a href="#creo">Creo</a>
     <a href="/hederica">Hederica</a>
     <a href="/charter">Charter</a>
     <a href="/bylaws">Bylaws</a>
@@ -285,6 +299,16 @@
       </tbody>
     </table>
     <p class="muted">Also said, and not a new step. Provenance is where it came from. A refusal is: you tap no, and the no stays on the record.</p>
+    <section id="creo" class="glossary">
+      <h3>Creo, Credit and Debit</h3>
+      <ul>
+        <li><strong>Debit</strong>: you owe.</li>
+        <li><strong>Credit</strong>: you lend.</li>
+        <li><strong>Creo</strong>: value you create, the IdidIt currency.</li>
+      </ul>
+      <p>Creo is not a debt. When you log work, you don't owe anyone: you create value, and values are exchanged in proportion. Creo is not a coin and is separate from $lgme.</p>
+      <p><a href="https://lgme.app">See it in lgme.app</a></p>
+    </section>
   </section>
   <section id="third-seat" class="third-seat">
     <h2>The Third Seat</h2>
@@ -322,7 +346,7 @@
     <p class="kicker">Debit Credit IDidit · #LeGoMiego · $LGME</p>
     <p><a class="enter" href="/exchange">IdidIt</a></p>
     <p class="muted">The exchange sits under this button. The Third Seat is your seat, held by you alone, with equal standing beside the state and the firm. You may decline any exchange at no cost, no unpublished rule can bind you, and any hold on your exchange must give a reason and can be challenged, decided within 7 days or it lapses. Holds the law requires are cited, recorded, and kept no broader or longer than the law demands. The only check is an X handle. It stays in this browser. Not a new coin, and not the enrollment pilot. The nonprofit is not an arbiter.</p>
-    <p class="muted"><strong>IdidIt receipt.</strong> A single Hedera Consensus Service message that records the job, who did it, and the sequence on the tape. The message is the credit. It is not cash. It stores the fact of the work. It becomes a source of value toward exchange only when claimed against another shown item, and that claim must also appear on the tape. Floor stays senior.</p>
+    <p class="muted"><strong>IdidIt receipt.</strong> A single Hedera Consensus Service message that records the job, who did it, and the sequence on the tape. The message is Creo. It is not cash. It stores the fact of the work. It becomes a source of value toward exchange only when claimed against another shown item, and that claim must also appear on the tape. Floor stays senior.</p>
     <p>Contribution, participation welcome. X Money to <a href="https://x.com/Trancesage">@Trancesage</a>. Send it from the Money tab on X. This page does not hold it.</p>
     <h2>The system isn’t broken. It’s working exactly as intended.</h2>
     <p class="muted">Let’s make the economy work for everyone. <a href="https://lgme.app">$LGME</a></p>
@@ -382,6 +406,12 @@
       t.addEventListener("click", toggle);
       t.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
+      n.addEventListener("click", function (e) {
+        if (!e.target.closest("a")) return;
+        n.classList.remove("open");
+        t.classList.remove("open");
+        t.setAttribute("aria-expanded", "false");
       });
     })();
   </script>
