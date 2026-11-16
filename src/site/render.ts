@@ -42,7 +42,7 @@ export function relativizeHtml(html: string): string {
     },
   );
   return attrs.replace(
-    /register\(\s*(["'])\/sw\.js\1/g,
+    /register\(\s*(["'])\/sw\.js\1\s*\)/g,
     (_match, quote: string) => `register(${quote}sw.js${quote})`,
   );
 }
