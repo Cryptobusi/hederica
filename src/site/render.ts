@@ -1,3 +1,6 @@
+import { visitorGateScript } from "./visitor-gate-client.ts";
+import { visitorGateBody, visitorGateHead } from "./visitor-gate-document.ts";
+
 /** Map a request path to a single HTML file in src/site/html. */
 export function resolvePageFile(pathname: string): string | null {
   let path = pathname || "/";
@@ -36,8 +39,7 @@ export function relativizeHtml(html: string): string {
   const attrs = html.replace(
     /(<[^>]*?\s)(href|src|poster|action)(\s*=\s*)(["'])\/(?!\/)([^"']*)\4/gi,
     (_match, before: string, attr: string, eq: string, quote: string, path: string) => {
-      const rel =
-        path === "" || path.startsWith("#") || path.startsWith("?") ? `./${path}` : path;
+      const rel = path === "" || path.startsWith("#") || path.startsWith("?") ? `./${path}` : path;
       return `${before}${attr}${eq}${quote}${rel}${quote}`;
     },
   );
@@ -47,12 +49,21 @@ export function relativizeHtml(html: string): string {
   );
 }
 
+function visitorGateRuntime(): string {
+  const source = visitorGateScript.replace(/<\/script/gi, "<\\/script");
+  return `<script>${source}</script>`;
+}
+
 export function renderSiteDocument(html: string, routes: readonly string[]): string {
   const body = relativizeHtml(html);
   const boot =
     `<script>window.__LGME_ROUTES=${JSON.stringify(routes)};</script>` +
     `<script src="lgme-preview-bridge.js" defer></script>`;
+  const injection = `${visitorGateBody}${visitorGateRuntime()}${boot}`;
   const closer = body.lastIndexOf("</body>");
-  if (closer === -1) return body + boot;
-  return `${body.slice(0, closer)}${boot}${body.slice(closer)}`;
+  const withBody =
+    closer === -1 ? body + injection : `${body.slice(0, closer)}${injection}${body.slice(closer)}`;
+  const head = withBody.lastIndexOf("</head>");
+  if (head === -1) return `${visitorGateHead}${withBody}`;
+  return `${withBody.slice(0, head)}${visitorGateHead}${withBody.slice(head)}`;
 }
