@@ -9,7 +9,7 @@ export const visitorGateHead = `<style id="visitor-gate-style">
 #visitor-gate {
   position: fixed;
   inset: 0;
-  z-index: 30;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,9 +147,9 @@ html[data-visitor-gate-pending="check"] #visitor-gate-checking { display: block 
 .visitor-gate-note {
   display: none;
   position: fixed;
-  z-index: 35;
+  z-index: 36;
   left: max(0.75rem, env(safe-area-inset-left));
-  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  bottom: calc(5.5rem + env(safe-area-inset-bottom));
   max-width: min(18rem, calc(100vw - 1.5rem));
   margin: 0;
   padding: 0.4rem 0.6rem;
