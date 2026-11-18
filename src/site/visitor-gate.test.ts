@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import test from "node:test";
 import vm from "node:vm";
 import { visitorGateScript } from "./visitor-gate-client.ts";
-import { renderSiteDocument } from "./render.ts";
+import { VISITOR_GATE_ENABLED } from "./visitor-gate-config.ts";
+import { relativizeHtml, renderSiteDocument, visitNoticeMarkup } from "./render.ts";
 import {
   VISITOR_GATE_BYPASS_NOTE,
   VISITOR_GATE_PRIVACY,
@@ -320,7 +321,8 @@ test("render injects the gate without altering page copy", () => {
   assert.match(index, /Creo is not a coin/);
   assert.equal(index.includes("$Trust"), false);
 
-  const rendered = renderSiteDocument(index, ["/"]);
+  // Force the gate on. The site switch stays off in visitor-gate-config.ts.
+  const rendered = renderSiteDocument(index, ["/"], true);
   assert.match(rendered, /<strong>Debit<\/strong>: you owe\./);
   assert.match(rendered, /<strong>Credit<\/strong>: you lend\./);
   assert.match(rendered, /Creo is not a coin/);
@@ -334,6 +336,40 @@ test("render injects the gate without altering page copy", () => {
   assert.equal(rendered.split('id="visitor-gate"').length, 2);
   assert.equal(rendered.includes("https://lgme.app/api/gate/verify"), true);
   assert.match(rendered, /href="study"/);
+});
+
+test("with the visitor gate switch off, no gate markup is rendered", () => {
+  assert.equal(VISITOR_GATE_ENABLED, false);
+
+  const pages = readdirSync(new URL("./html", import.meta.url))
+    .filter((name) => name.endsWith(".html"))
+    .map((name) => readFileSync(new URL(`./html/${name}`, import.meta.url), "utf8"));
+  pages.push("<p>Fragment with no head or body</p>");
+  pages.push("<html><head><title>Bare</title></head><p>No body tag</p></html>");
+
+  for (const source of pages) {
+    const rendered = renderSiteDocument(source, ["/", "/study"]);
+    assert.equal(rendered, renderAsBeforeGate(source, ["/", "/study"]));
+    assert.equal(rendered.includes('id="visitor-gate"'), false);
+    assert.equal(rendered.includes("visitor-gate-note"), false);
+    assert.equal(rendered.includes("visitor-gate-style"), false);
+    assert.equal(rendered.includes("data-visitor-gate"), false);
+    assert.equal(rendered.includes(VISITOR_GATE_BYPASS_NOTE), false);
+    assert.equal(rendered.includes(VISITOR_GATE_PRIVACY), false);
+    assert.equal(rendered.includes("https://lgme.app/api/gate"), false);
+    assert.equal(rendered.includes("hederica.gate.token"), false);
+    assert.equal(rendered.includes("visitorGateFactory"), false);
+    assert.equal(rendered.includes("$Trust"), false);
+  }
+
+  const home = readFileSync(new URL("./html/index.html", import.meta.url), "utf8");
+  const homeRendered = renderSiteDocument(home, ["/"]);
+  assert.match(homeRendered, /<strong>Debit<\/strong>: you owe\./);
+  assert.match(homeRendered, /<strong>Credit<\/strong>: you lend\./);
+  assert.match(homeRendered, /<strong>Creo<\/strong>: value you create, the IdidIt currency\./);
+  assert.match(homeRendered, /Creo is not a coin/);
+  assert.match(homeRendered, /visit-notice/);
+  assert.match(homeRendered, /href="privacy"/);
 });
 
 test("preview hosts bypass and hederica.com asks for an email", () => {
@@ -510,6 +546,7 @@ test("Tab wraps inside the dialog and Escape does not dismiss it", () => {
 test("gate sources do not mention $Trust", () => {
   const files = [
     "src/site/visitor-gate-client.ts",
+    "src/site/visitor-gate-config.ts",
     "src/site/visitor-gate-document.ts",
     "src/site/render.ts",
   ];
@@ -517,6 +554,18 @@ test("gate sources do not mention $Trust", () => {
     assert.equal(readFileSync(file, "utf8").includes("$Trust"), false, file);
   }
 });
+
+/** Body injection from before the gate (commit 3f2ba4c). */
+function renderAsBeforeGate(html: string, routes: readonly string[]): string {
+  const body = relativizeHtml(html);
+  const boot =
+    `<script>window.__LGME_ROUTES=${JSON.stringify(routes)};</script>` +
+    `<script src="lgme-preview-bridge.js" defer></script>` +
+    visitNoticeMarkup();
+  const closer = body.lastIndexOf("</body>");
+  if (closer === -1) return body + boot;
+  return `${body.slice(0, closer)}${boot}${body.slice(closer)}`;
+}
 
 function fetchStub(): MockFetch {
   return () => Promise.reject(new Error("unexpected"));
