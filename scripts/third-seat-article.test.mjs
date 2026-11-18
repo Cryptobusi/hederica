@@ -42,3 +42,24 @@ test("the Jefferson sovereignty sentence is unchanged", () => {
   assert.ok(readFileSync("src/site/html/index.html", "utf8").includes(SOVEREIGNTY));
   assert.ok(readFileSync("public/docs/Sovereignty_Jefferson.md", "utf8").includes(SOVEREIGNTY));
 });
+
+test("the American Dream section cites the 1980 cohort and the Chetty papers", () => {
+  const html = readFileSync("src/site/html/index.html", "utf8");
+  const start = html.indexOf('id="american-dream"');
+  const end = html.indexOf('id="sovereignty"');
+  assert.ok(start > 0 && end > start);
+  const section = html.slice(start, end);
+  assert.match(section, /born in 1980/);
+  assert.equal(section.includes("1990"), false);
+  assert.ok(section.includes("https://opportunityinsights.org/paper/the-fading-american-dream/"));
+  assert.ok(section.includes("https://www.nature.com/articles/s41586-022-04996-4"));
+  assert.ok(section.includes("https://lgme.app/chetty-review"));
+  assert.ok(section.includes("a small amount of Creo, value you create,"));
+  assert.ok(section.includes("Deeds earn Creo, not coins."));
+  const dreamEnd = html.indexOf("</section>", start);
+  const dream = html.slice(start, dreamEnd);
+  assert.equal(/credit/i.test(dream), false);
+  assert.ok(html.includes("The message is the credit."));
+  assert.equal(section.includes("$Trust") || section.includes("$TRUST") || section.includes("$LGME"), false);
+  assert.ok(html.includes(SOVEREIGNTY));
+});
