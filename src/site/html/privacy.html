@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy · Hederica</title>
+  <meta name="description" content="What hederica.com records when a page is opened, why, and how long that note is kept." />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" />
+  <link rel="stylesheet" href="/menu.css" />
+  <style>
+    :root { --bg: #0c100c; --fg: #f4f1e8; --muted: #c5d0c2; --gold: #c6a15b; --line: #2c352b; }
+    body { background: var(--bg); color: var(--fg); font-family: Figtree, sans-serif; max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; line-height: 1.6; }
+    .kicker { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    h1, h2 { font-family: Newsreader, serif; font-weight: 500; }
+    h1 { font-size: clamp(2rem, 6vw, 2.9rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.4rem, 4vw, 1.75rem); line-height: 1.15; }
+    .muted { color: var(--muted); }
+    a { color: var(--fg); }
+    a:hover { color: var(--gold); }
+    section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.5rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <nav class="deskmenu" aria-label="Desk">
+    <a href="/">Desk</a>
+    <a href="/study">Study</a>
+    <a href="/structural-synthesis">Structural synthesis</a>
+  </nav>
+  <p class="kicker">Notice · 18 November 2026</p>
+  <h1>Privacy</h1>
+  <p class="muted">This page describes what hederica.com does when someone opens a page. It is a description of the site’s own practice.</p>
+
+  <section id="what">
+    <h2>What is collected</h2>
+    <p>Each visit is logged by email to the site owner. The note contains:</p>
+    <ul>
+      <li>the time of the visit</li>
+      <li>the page, and the query string if there is one</li>
+      <li>the referring page, when the browser sends one</li>
+      <li>an approximate location taken from the IP address: country, region, and city, as the host supplies them</li>
+      <li>a masked IP address. For IPv4 the last octet is set to 0. For IPv6 only the first three groups are kept</li>
+      <li>the browser and device, read from the user-agent string</li>
+      <li>the language preference the browser sends</li>
+    </ul>
+  </section>
+
+  <section id="why">
+    <h2>Why</h2>
+    <p>The note is for understanding readership: which pages are opened, and from where, in a general way. It is not used to build an advertising profile.</p>
+  </section>
+
+  <section id="retention">
+    <h2>Retention</h2>
+    <p>The note is kept in the owner’s inbox until the owner deletes it. A first-party cookie, <span class="muted">va_seen</span>, remembers a browser for 24 hours so the same visitor does not generate another note that day. The cookie is not used for anything else.</p>
+  </section>
+
+  <section id="sharing">
+    <h2>No sale, no sharing, no ads</h2>
+    <p>The site does not sell this information and does not share it with advertisers. It does not run ads or third-party trackers. The email goes to the site owner. Automated crawlers are not mailed.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>A question about this notice can be sent through <a href="/">the site</a>.</p>
+  </section>
+</body>
+</html>
