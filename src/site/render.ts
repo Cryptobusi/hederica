@@ -1,4 +1,5 @@
 import { visitorGateScript } from "./visitor-gate-client.ts";
+import { VISITOR_GATE_ENABLED } from "./visitor-gate-config.ts";
 import { visitorGateBody, visitorGateHead } from "./visitor-gate-document.ts";
 
 /** Map a request path to a single HTML file in src/site/html. */
@@ -89,15 +90,27 @@ body{padding-bottom:5.5rem}
 </script>`;
 }
 
-export function renderSiteDocument(html: string, routes: readonly string[]): string {
+/**
+ * `visitorGateEnabled` defaults to {@link VISITOR_GATE_ENABLED}. Pass `true`
+ * to force the gate on (tests do this) without flipping the site switch.
+ */
+export function renderSiteDocument(
+  html: string,
+  routes: readonly string[],
+  visitorGateEnabled: boolean = VISITOR_GATE_ENABLED,
+): string {
   const body = relativizeHtml(html);
-  const boot =
+  const routesBoot =
     `<script>window.__LGME_ROUTES=${JSON.stringify(routes)};</script>` +
     `<script src="lgme-preview-bridge.js" defer></script>`;
-  const injection = `${visitorGateBody}${visitNoticeMarkup()}${visitorGateRuntime()}${boot}`;
+  // Gate off: same body injection as before the gate (routes, bridge, notice).
+  const boot = visitorGateEnabled
+    ? `${visitorGateBody}${visitNoticeMarkup()}${visitorGateRuntime()}${routesBoot}`
+    : `${routesBoot}${visitNoticeMarkup()}`;
   const closer = body.lastIndexOf("</body>");
   const withBody =
-    closer === -1 ? body + injection : `${body.slice(0, closer)}${injection}${body.slice(closer)}`;
+    closer === -1 ? body + boot : `${body.slice(0, closer)}${boot}${body.slice(closer)}`;
+  if (!visitorGateEnabled) return withBody;
   const head = withBody.lastIndexOf("</head>");
   if (head === -1) return `${visitorGateHead}${withBody}`;
   return `${withBody.slice(0, head)}${visitorGateHead}${withBody.slice(head)}`;
